@@ -1,0 +1,15 @@
+environment
+*.pyc
+data
+mongodb
+*.pem
+config/environment_dev.py
+/node_modules
+/.sass-cache
+npm-debug.log
+/Design
+*.map
+*.db
+build
+/server.app
+server

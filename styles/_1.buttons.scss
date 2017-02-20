@@ -1,0 +1,109 @@
+
+// #BUTTONS
+
+button,
+.button {
+	cursor: pointer;
+	display: inline-block;
+	
+	font-family: $alternate_font;
+	font-weight: lighter;
+	font-size: $base_size;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	color: $white;
+	
+	position: relative;
+	padding: $vertical_rythm $vertical_rythm*4;
+	background: $highlight;
+	border: none;
+	border-radius: $border_radius;
+
+	// @include transition(background $fast, color $fast, border-color $fast, opacity $fast);
+
+
+	&:active {
+		top: 1px;
+	}
+
+	&:disabled,
+	form:disabled & {
+		pointer-events: none;
+		opacity: 0.2;
+	}
+
+	&.button--circle {
+		@extend .grid;
+		@extend .grid--middle;
+
+		font-size: $big_size;
+		line-height: 1.35;
+
+		padding-right: 0;
+		padding-left: 0;
+		width: (233/$base) * 1rem;
+		height: (233/$base) * 1rem;
+		border-radius: 50%;
+	}
+
+	&.button--full {
+		padding-right: 0;
+		padding-left: 0;
+		width: 100%;
+
+		margin-bottom: $vertical_rythm/4;
+		border-bottom-right-radius: $border_radius;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&.button--outline {
+		border: 1px solid $highlight;
+		background: transparent;
+		color: $highlight;
+	}
+
+	&.button--tight {
+		padding: $vertical_rythm/1.5 $vertical_rythm $vertical_rythm/2.333;
+		border: 4px solid transparent;
+	}
+
+	&:hover,
+	&:focus {
+		color: $white;
+		background: $dark_background;
+		border-color: transparent;
+	}
+
+	&.button--black {
+		background: $black;
+		@include linear_gradient_background($black--light 0%, $black 100%, 180deg);
+
+		&:hover,
+		&:focus {
+			background: $dark_background;
+		}
+	}
+
+
+	&.button--underline {
+		color: inherit;
+		background: transparent;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		border-bottom: 2px solid;
+
+		&:hover,
+		&:focus {
+			color: $highlight;
+		}
+	}
+}
+
+
+
+

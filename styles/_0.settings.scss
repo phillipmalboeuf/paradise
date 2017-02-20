@@ -1,0 +1,63 @@
+
+// #COLORS
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 20%);
+$black--light: hsl(0, 0%, 33%);
+$grey: hsl(0, 0%, 66%);
+$grey--light: hsl(0, 0%, 90%);
+$red: #DB2A12;
+
+$body_color: $black;
+$headings_color: inherit;
+$highlight: $red;
+$light_background: $grey--light;
+$dark_background: $black--light;
+$alert_color: $red;
+
+// #FONTS
+
+$body_font: "HK Grotesk", sans-serif;
+$headings_font: "HK Grotesk", sans-serif;
+$alternate_font: "HK Grotesk", sans-serif;
+
+$bold: 600;
+
+
+// #LAYOUT
+
+$base: 18;
+$base_size: $base * 1px;
+$massive_size: (66/$base) * 1rem;
+$huge_size: (42/$base) * 1rem;
+$big_size: (28/$base) * 1rem;
+$medium_size: (24/$base) * 1rem;
+$slight_size: (22/$base) * 1rem;
+$small_size: (14/$base) * 1rem;
+$tiny_size: (12/$base) * 1rem;
+
+$vertical_rythm: 1rem;
+$line_height: 1.5;
+$max_width: 1400px;
+$letter_spacing: 0;
+$border_radius: 3px;
+
+$number_of_columns: 12;
+$gutter: (24/$base) * 1rem;
+
+
+// #ANIMATIONS
+
+$fast: 0.333s;
+$slow: 0.666s;
+$very_slow: 1.666s;
+
+
+// #BREAKPOINTS
+
+$phone: "all and (max-device-width:600px), all and (max-width:600px)";
+$tablet_portrait: "all and (max-device-width:900px), all and (max-width:900px)";
+$tablet_landscape: "all and (max-device-width:1200px), all and (max-width:1200px)";
+$big_desktop: "all and (min-device-width:1800px), all and (min-width:1800px)";
+$breakpoints: "big_desktop" $big_desktop, "tablet_landscape" $tablet_landscape, "tablet_portrait" $tablet_portrait, "phone" $phone;
+

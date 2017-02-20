@@ -1,0 +1,106 @@
+// #IMAGES
+
+figure {
+	padding: 0;
+	margin: 0 0 $vertical_rythm;
+}
+
+img,
+picture {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+
+	&.img--center {
+		margin: 0 auto;
+	}
+
+	&.img--full {
+		width: 100%;
+		margin: 0 auto $vertical_rythm;
+	}
+
+	&.img--half {
+		width: 50%;
+		margin: 0 auto $vertical_rythm;
+	}
+
+	&.img--round {
+		width: 5.357rem;
+		margin: 0 auto $vertical_rythm/4;
+		border-radius: 50%;
+	}
+
+	&.img--icon {
+		max-width: 7.2rem;
+		margin: 0 auto $vertical_rythm;
+
+		&.img--round {
+			width: 9rem;
+			border-radius: 50%;
+		}
+
+		&.img--icon--small {
+			width: 4.5rem;
+		}
+	}
+
+	&.img--clickable {
+		cursor: pointer;
+	}
+}
+
+.img--with_corner {
+	border-bottom-right-radius: $border_radius;
+}
+
+.container {
+	position: relative;
+	display: block;
+
+	min-height: 10rem;
+
+	&:hover,
+	a:focus &,
+	&.container--show_text {
+
+		& .container__text {
+			opacity: 1;
+		}
+	}
+}
+
+
+	.container__image {
+		position: relative;
+		z-index: 1;
+
+		&.container__image--front {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+
+	.container__text {
+		z-index: 2;
+		
+		position: absolute;
+		top: auto;
+		bottom: 0;
+
+		@extend .padded;
+		@extend .padded--tight;
+		width: 100%;
+
+		@extend .small;
+		text-align: left;
+		background: fade-out($white, 0.25);
+
+		opacity: 0;
+
+		@include transition(opacity $fast);
+	}
+
+		

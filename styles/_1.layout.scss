@@ -1,0 +1,136 @@
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+
+.shopify-preview-bar {
+	display: none !important;
+}
+
+
+
+// #BODY
+
+html {
+	
+}
+
+body {
+	position: relative;
+}
+
+
+// #HEADER
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+
+	@media #{$phone} {
+		position: relative;
+	}
+}
+
+
+// #MAIN
+
+.main {
+	// position: relative;
+	// z-index: 1;
+
+	// max-width: $max_width;
+	// min-height: 100vh;
+
+	// @media #{$phone} {
+	// 	min-height: auto;
+	// }
+}
+
+
+// #FOOTER
+
+footer {
+	
+}
+
+
+
+// #MIXINS
+
+.max_width { 
+	max-width: $max_width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.padded {
+	padding: $gutter;
+
+	&.padded--tight {
+		padding: $gutter/2;
+	}
+
+	&.padded--thick {
+		padding: $gutter*3;
+
+		@media #{$tablet_portrait} {
+			padding: $gutter*2;
+		}
+
+		@media #{$phone} {
+			padding: $gutter;
+		}
+	}
+
+	&.padded--underheader {
+		padding-top: $gutter * 8;
+
+		@media #{$tablet_portrait} {
+			padding-top: $gutter*6;
+		}
+
+		@media #{$phone} {
+			padding-top: $gutter*4;
+		}
+	}
+
+	&.padded--small_bottom {
+		padding-bottom: $gutter/2;
+	}
+}
+
+.huge_bottom { 
+	margin-bottom: $vertical_rythm*8;
+}
+
+.big_bottom { margin-bottom: $vertical_rythm*4; }
+.medium_bottom { margin-bottom: $vertical_rythm*2; }
+.normal_bottom { margin-bottom: $vertical_rythm; }
+.small_bottom { margin-bottom: $vertical_rythm/4; }
+.flat_bottom { margin-bottom: 0 !important; }
+.flat_top { margin-top: 0 !important; }
+.normal_top { margin-top: $vertical_rythm; }
+.medium_top { margin-top: $vertical_rythm*2; }
+.nav_top {margin-top: $vertical_rythm*3.75;} //60px
+
+.bordered { border: 1px solid $grey--light; }
+.border_left { border-left: 1px solid $highlight; }
+.border_right { border-right: 1px solid $highlight; }
+
+.relative { position: relative; }
+.hide { display: none !important; }
+.invisible { visibility: hidden; }
+.inline_block { display: inline-block; }
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+.text_left { text-align: left; }
+
+
+
+
+

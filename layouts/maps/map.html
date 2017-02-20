@@ -1,0 +1,17 @@
+
+{% extends "_layout.html" %}
+
+
+
+{% block main %}
+
+<script>
+	const map_json = {{map|json|safe}};
+</script>
+
+<div class="padded white_back" id="map">Preparing your map...</div>
+
+{% endblock %}
+
+
+

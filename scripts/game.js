@@ -1,0 +1,37 @@
+
+import { Component } from 'react';
+
+import { World } from './world.js';
+import { Character } from './character.js';
+
+import { Plane } from './plane.js';
+import { Room } from './room.js';
+import { Box } from './box.js';
+
+
+export class Game extends Component {
+
+	constructor(props) {
+		super(props)
+	}
+
+
+	render() {
+		return (
+			<World>
+				<Character x={900} y={300} currentIndex={1} />
+				<Plane index={1} currentIndex={1}>
+					<Room x={600} y={400} h={700}>	
+						<Box x={600} y={200} />
+					</Room>
+				</Plane>
+
+				<Plane index={2} currentIndex={1}>
+					<Room x={1200} y={400} h={700}>	
+						<Box x={1200} y={400} />
+					</Room>
+				</Plane>
+			</World>
+		)
+	}
+}
