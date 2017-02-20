@@ -11,6 +11,8 @@ export class Body extends Component {
 	}
 
 	componentDidMount() {
+		this.body.render.fillStyle = '#fff'
+
 		Matter.World.add(this.context.engine.world, this.body)
 	}
 
@@ -18,15 +20,16 @@ export class Body extends Component {
 		Matter.World.remove(this.context.engine.world, this.body)
 	}
 
+	componentWillReceiveProps(nextProps) {
+		// Matter.Sleeping.set(this.body, false)
+		// Matter.Body.setPosition(this.body, {x: nextProps.x, y: nextProps.y})
+	}
+
 	applyForce(forceX, forceY) {
 		Matter.Body.applyForce(this.body, this.body.position, {x: forceX, y: forceY})
 	}
 
 	render() {
-		Matter.Sleeping.set(this.body, false)
-		Matter.Body.setPosition(this.body, {x: this.props.x, y: this.props.y})
-
-		this.body.render.fillStyle = '#fff'
 		this.body.render.opacity = this.context.current ? 1 : 0.1
 
 		this.body.collisionFilter.mask = this.context.index

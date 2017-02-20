@@ -14,6 +14,10 @@
 		<section class="main {% block main_classes %}{% endblock %}" role="main">{% block main %}{% endblock %}</section>
 		<footer class="footer"></footer>
 
+		{% if debugging %}
 		<script src="http://localhost:8090/app.js"></script>
+		{% else %}
+		<script src="/files/app.js"></script>
+		{% endif %}
 	</body>
 </html>

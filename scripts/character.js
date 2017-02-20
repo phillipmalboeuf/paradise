@@ -33,16 +33,27 @@ export class Character extends Component {
 		this.circle.applyForce(0, -0.25)
 	}
 
+	enter() {
+		// TEST
+		if (this.props.currentIndex == 1) {
+			this.props.changeIndex(2)
+		} else {
+			this.props.changeIndex(1)
+		}
+	}
+
 	componentDidMount() {
 		Matter.Events.on(this.context.engine, 'beforeTick', this.move.bind(this))
 
 		key("space, up, w", this.jump.bind(this))
+		key("enter", this.enter.bind(this))
 	}
 
 	componentWillUnmount() {
 		Matter.Events.off(this.context.engine, 'beforeTick', this.move)
 
 		key.unbind("space, up, w", this.jump)
+		key.unbind("enter", this.enter)
 	}
 
 	render() {

@@ -4,8 +4,10 @@ const globby = require("globby");
 module.exports = [{
 	name: "js",
 	entry: globby.sync(["./scripts/app.js", "./layouts/**/*.html"]),
+	devtool: "cheap-module-source-map",
 	output: {
 		filename: "app.js",
+		path: "./files",
 		publicPath: "http://localhost:8090/"
 	},
 	module: {

@@ -26,7 +26,8 @@
   },
   "scripts": {
     "server": "source environment/bin/activate && python server.py",
-    "start": "open 'http://localhost:8080' && webpack-dev-server --config=./config/config.js --env=development --client-log-level=error"
+    "start": "open 'http://localhost:8080' && webpack-dev-server --config=./config/config.js --env=development --client-log-level=error",
+    "build": "webpack --config=./config/config.js --env=production --progress -p"
   },
   "author": "Phillip Malboeuf <phillip.malboeuf@gmail.com>",
   "dependencies": {
