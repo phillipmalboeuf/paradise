@@ -37,12 +37,38 @@ export class World extends Component {
 			this.r.canvas.width = window.innerWidth
 			this.r.canvas.height = window.innerHeight
 		})
+
+		Matter.Events.on(this.e, "collisionStart", this.onCollisionStart.bind(this))
+		Matter.Events.on(this.e, "collisionEnd", this.onCollisionEnd.bind(this))
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize')
+
+		Matter.Events.off(this.e, "collisionStart", this.onCollisionStart)
+		Matter.Events.off(this.e, "collisionEnd", this.onCollisionEnd)
 	}
 
+	onCollisionStart(event) {
+		for (var i = event.pairs.length - 1; i >= 0; i--) {
+			event.pairs[i]["otherBody"] = event.pairs[i].bodyB
+			Matter.Events.trigger(event.pairs[i].bodyA, "collisionStart", event.pairs[i])
+
+			event.pairs[i]["otherBody"] = event.pairs[i].bodyA
+			Matter.Events.trigger(event.pairs[i].bodyB, "collisionStart", event.pairs[i])
+		}
+	}
+
+	onCollisionEnd(event) {
+		const otherBody = {}
+		for (var i = event.pairs.length - 1; i >= 0; i--) {
+			event.pairs[i]["otherBody"] = event.pairs[i].bodyB
+			Matter.Events.trigger(event.pairs[i].bodyA, "collisionEnd", event.pairs[i])
+
+			event.pairs[i]["otherBody"] = event.pairs[i].bodyA
+			Matter.Events.trigger(event.pairs[i].bodyB, "collisionEnd", event.pairs[i])
+		}
+	}
 
 	render() {
 		return (

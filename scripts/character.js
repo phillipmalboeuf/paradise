@@ -20,17 +20,21 @@ export class Character extends Component {
 	}
 
 	move() {
-		if(key.isPressed("left") || key.isPressed("a")) {
+		if((key.isPressed("left") || key.isPressed("a")) && this.circle.isOnTheGround()) {
 			this.circle.applyForce(-0.01, 0)
 		}
 
-		if(key.isPressed("right") || key.isPressed("d")) {
+		if((key.isPressed("right") || key.isPressed("d")) && this.circle.isOnTheGround()) {
 			this.circle.applyForce(0.01, 0)
 		}
 	}
 
 	jump() {
-		this.circle.applyForce(0, -0.25)
+		this.move()
+
+		if (this.circle.isOnTheGround()) {
+			this.circle.applyForce(0, -0.25)
+		}
 	}
 
 	enter() {
@@ -56,10 +60,13 @@ export class Character extends Component {
 		key.unbind("enter", this.enter)
 	}
 
+
 	render() {
 		return (
 			<div>Character
-				<Circle ref={(circle) => { this.circle = circle }} x={this.props.x} y={this.props.y} r={50} />
+				<Circle ref={(circle) => { this.circle = circle }}
+					alwaysAwake
+					x={this.props.x} y={this.props.y} r={45} />
 			</div>
 		)
 	}
