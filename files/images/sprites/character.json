@@ -1,0 +1,99 @@
+﻿{"frames": [
+
+{
+	"filename": "idle instance 10000",
+	"frame": {"x":0,"y":0,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10001",
+	"frame": {"x":0,"y":0,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10002",
+	"frame": {"x":0,"y":0,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10003",
+	"frame": {"x":38,"y":0,"w":38,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10004",
+	"frame": {"x":38,"y":0,"w":38,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10005",
+	"frame": {"x":76,"y":0,"w":38,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10006",
+	"frame": {"x":76,"y":0,"w":38,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10007",
+	"frame": {"x":76,"y":0,"w":38,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10008",
+	"frame": {"x":0,"y":53,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10009",
+	"frame": {"x":38,"y":53,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}
+,{
+	"filename": "idle instance 10010",
+	"frame": {"x":76,"y":53,"w":38,"h":53},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":53},
+	"sourceSize": {"w":38,"h":53}
+}],
+"meta": {
+	"app": "Adobe Animate",
+	"version": "15.2.1.95",
+	"image": "character.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":128},
+	"scale": "1"
+}
+}

@@ -65,8 +65,10 @@ export class Character extends Component {
 		return (
 			<div>Character
 				<Circle ref={(circle) => { this.circle = circle }}
-					alwaysAwake
-					x={this.props.x} y={this.props.y} r={45} />
+					spriteSheet={"run"}
+					spriteFPS={20}
+					x={this.props.x} y={this.props.y} r={45}
+					alwaysAwake />
 			</div>
 		)
 	}

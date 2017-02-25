@@ -19,7 +19,7 @@ export class World extends Component {
 			options: {
 				width: window.innerWidth,
 				height: window.innerHeight,
-				showAngleIndicator: true,
+				showAngleIndicator: false,
 				wireframes: false
 			}
 		})
@@ -69,6 +69,7 @@ export class World extends Component {
 			Matter.Events.trigger(event.pairs[i].bodyB, "collisionEnd", event.pairs[i])
 		}
 	}
+
 
 	render() {
 		return (
