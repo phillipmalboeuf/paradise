@@ -81,7 +81,6 @@ export class Character extends Component {
 
 
 	render() {
-		console.log(this.state.facingRight)
 		return (
 			<div>Character
 				<Circle ref={(circle) => { this.circle = circle }}
