@@ -10,6 +10,10 @@ export class Character extends Component {
 
 	constructor(props) {
 		super(props)
+		this.state = {
+			speed: "stopped",
+			facingRight: false
+		}
 	}
 
 	getChildContext() {
@@ -27,13 +31,28 @@ export class Character extends Component {
 		if((key.isPressed("right") || key.isPressed("d")) && this.circle.isOnTheGround()) {
 			this.circle.applyForce(0.01, 0)
 		}
+
+		if (this.circle.body.speed <= 1) {
+			if (this.state.speed != "stopped") {this.setState({speed: "stopped"})}
+		} else if (this.circle.body.speed > 6.66) {
+			if (this.state.speed != "fast") {this.setState({speed: "fast"})}
+		} else if (this.circle.body.speed > 1) {
+			if (this.state.speed != "slow") {this.setState({speed: "slow"})}
+		}
+
+		if (this.circle.body.velocity.x > 0.1) {
+			if (!this.state.facingRight) {this.setState({facingRight: true})}
+		} else if (this.circle.body.velocity.x < -0.1) {
+			if (this.state.facingRight) {this.setState({facingRight: false})}
+		}
+		// console.log(this.circle.body.velocity)
 	}
 
 	jump() {
 		this.move()
 
 		if (this.circle.isOnTheGround()) {
-			this.circle.applyForce(0, -0.25)
+			this.circle.applyForce(0, -0.13)
 		}
 	}
 
@@ -47,14 +66,14 @@ export class Character extends Component {
 	}
 
 	componentDidMount() {
-		Matter.Events.on(this.context.engine, 'beforeTick', this.move.bind(this))
+		Matter.Events.on(this.context.engine, 'afterStep', this.move.bind(this))
 
 		key("space, up, w", this.jump.bind(this))
 		key("enter", this.enter.bind(this))
 	}
 
 	componentWillUnmount() {
-		Matter.Events.off(this.context.engine, 'beforeTick', this.move)
+		Matter.Events.off(this.context.engine, 'afterStep', this.move)
 
 		key.unbind("space, up, w", this.jump)
 		key.unbind("enter", this.enter)
@@ -62,11 +81,12 @@ export class Character extends Component {
 
 
 	render() {
+		console.log(this.state.facingRight)
 		return (
 			<div>Character
 				<Circle ref={(circle) => { this.circle = circle }}
-					spriteSheet={"run"}
-					spriteFPS={20}
+					spriteSheet={(this.state.speed == "stopped" ? "character" : "run") + (this.state.facingRight ? "_right" : "")}
+					spriteFPS={this.state.speed == "fast" ? "30" : "10"}
 					x={this.props.x} y={this.props.y} r={45}
 					alwaysAwake />
 			</div>

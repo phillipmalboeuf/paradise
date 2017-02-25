@@ -23,6 +23,7 @@ export class World extends Component {
 				wireframes: false
 			}
 		})
+		this.timestep = 0
 	}
 
 	getChildContext() {
@@ -40,6 +41,7 @@ export class World extends Component {
 
 		Matter.Events.on(this.e, "collisionStart", this.onCollisionStart.bind(this))
 		Matter.Events.on(this.e, "collisionEnd", this.onCollisionEnd.bind(this))
+		Matter.Events.on(this.e, "afterUpdate", this.onAfterUpdate.bind(this))
 	}
 
 	componentWillUnmount() {
@@ -47,6 +49,7 @@ export class World extends Component {
 
 		Matter.Events.off(this.e, "collisionStart", this.onCollisionStart)
 		Matter.Events.off(this.e, "collisionEnd", this.onCollisionEnd)
+		Matter.Events.off(this.e, "afterUpdate", this.onAfterUpdate)
 	}
 
 	onCollisionStart(event) {
@@ -68,6 +71,12 @@ export class World extends Component {
 			event.pairs[i]["otherBody"] = event.pairs[i].bodyA
 			Matter.Events.trigger(event.pairs[i].bodyB, "collisionEnd", event.pairs[i])
 		}
+	}
+
+	onAfterUpdate(event) {
+		event.timestep = this.timestep
+		Matter.Events.trigger(this.e, "afterStep", event)
+		if (this.timestep === 59) { this.timestep = 0 } else { this.timestep++ }
 	}
 
 
