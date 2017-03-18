@@ -38,6 +38,7 @@ module.exports = [{
 	devServer: {
 		hot: true,
 		inline: true,
+		compress: true,
 		port: 8090
 	}
 }]

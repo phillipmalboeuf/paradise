@@ -34,7 +34,7 @@ export class Character extends Component {
 
 		if (this.circle.body.speed <= 1) {
 			if (this.state.speed != "stopped") {this.setState({speed: "stopped"})}
-		} else if (this.circle.body.speed > 6.66) {
+		} else if (this.circle.body.speed > 4) {
 			if (this.state.speed != "fast") {this.setState({speed: "fast"})}
 		} else if (this.circle.body.speed > 1) {
 			if (this.state.speed != "slow") {this.setState({speed: "slow"})}
@@ -45,7 +45,6 @@ export class Character extends Component {
 		} else if (this.circle.body.velocity.x < -0.1) {
 			if (this.state.facingRight) {this.setState({facingRight: false})}
 		}
-		// console.log(this.circle.body.velocity)
 	}
 
 	jump() {
@@ -84,9 +83,9 @@ export class Character extends Component {
 		return (
 			<div>Character
 				<Circle ref={(circle) => { this.circle = circle }}
-					spriteSheet={(this.state.speed == "stopped" ? "character" : "run") + (this.state.facingRight ? "_right" : "")}
-					spriteFPS={this.state.speed == "fast" ? "30" : "10"}
-					x={this.props.x} y={this.props.y} r={45}
+					spriteSheet={this.state.speed == "stopped" ? "idle" : this.state.speed == "slow" ? "run" : "sprint"}
+					spriteHorizontalFlip={this.state.facingRight}
+					x={this.props.x} y={this.props.y} r={48}
 					alwaysAwake />
 			</div>
 		)
