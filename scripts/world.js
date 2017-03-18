@@ -20,6 +20,7 @@ export class World extends Component {
 				width: window.innerWidth,
 				height: window.innerHeight,
 				showAngleIndicator: false,
+				showSleeping: false,
 				wireframes: false
 			}
 		})

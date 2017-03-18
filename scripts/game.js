@@ -28,21 +28,21 @@ export class Game extends Component {
 	render() {
 		return (
 			<World>
-				<Character x={900} y={300} 
-					currentIndex={this.state.currentIndex}
-					changeIndex={this.changeIndex.bind(this)} />
-
 				<Plane index={1} currentIndex={this.state.currentIndex}>
-					<Room x={600} y={400} h={700}>	
+					<Room x={600} y={400} w={750} h={485}>	
 						
 					</Room>
 				</Plane>
 
 				<Plane index={2} currentIndex={this.state.currentIndex}>
-					<Room x={1200} y={400} h={700}>	
+					<Room x={1000} y={400} w={750} h={485}>	
 					
 					</Room>
 				</Plane>
+
+				<Character x={400} y={300} 
+					currentIndex={this.state.currentIndex}
+					changeIndex={this.changeIndex.bind(this)} />
 			</World>
 		)
 	}

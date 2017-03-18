@@ -17,27 +17,40 @@ export class Room extends Component {
 
 	render() {
 		return (
-			<div>Room: {this.props.children}
-				<Rectangle engine={this.props.engine}
-					x={this.props.x}
-					y={this.props.y-(this.props.h/2)}
-					w={this.props.w}
-					h={this.props.wallThickness} static/>
-				<Rectangle engine={this.props.engine}
-					x={this.props.x+(this.props.w/2)}
-					y={this.props.y}
-					w={this.props.wallThickness}
-					h={this.props.h} static/>
-				<Rectangle engine={this.props.engine}
-					x={this.props.x}
-					y={this.props.y+(this.props.h/2)}
-					w={this.props.w}
-					h={this.props.wallThickness} static/>
+			<div>Room: 
 				<Rectangle engine={this.props.engine}
 					x={this.props.x-(this.props.w/2)}
 					y={this.props.y}
 					w={this.props.wallThickness}
-					h={this.props.h} static/>
+					h={this.props.h}
+					opacity={0} static/>
+				<Rectangle engine={this.props.engine}
+					x={this.props.x}
+					y={this.props.y-(this.props.h/2)}
+					w={this.props.w}
+					h={this.props.wallThickness}
+					opacity={0} static/>
+				<Rectangle engine={this.props.engine}
+					x={this.props.x+(this.props.w/2)}
+					y={this.props.y}
+					w={this.props.wallThickness}
+					h={this.props.h}
+					opacity={0} static/>
+				<Rectangle engine={this.props.engine}
+					x={this.props.x}
+					y={this.props.y+(this.props.h/2)}
+					w={this.props.w}
+					h={this.props.wallThickness}
+					opacity={0} static/>
+				<Rectangle engine={this.props.engine}
+					x={this.props.x}
+					y={this.props.y}
+					w={this.props.w}
+					h={this.props.h}
+					spriteSheet="room1"
+					spriteScale={0.8} nocollisions static/>
+
+				{this.props.children}
 			</div>
 		)
 	}

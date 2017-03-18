@@ -93,18 +93,24 @@ export class Body extends Component {
 			this.body.render.sprite.texture = `/files/images/sprites/${this.props.spriteSheet}.png`
 			// this.body.render.sprite.xScale = (this.body.bounds.max.y - this.body.bounds.min.y) / this.spriteArray.frames[0].frame.h
 			// this.body.render.sprite.yScale = (this.body.bounds.max.y - this.body.bounds.min.y) / this.spriteArray.frames[0].frame.h
-			this.body.render.sprite.xScale = 1
-			this.body.render.sprite.yScale = 1
+			this.body.render.sprite.xScale = this.props.spriteScale
+			this.body.render.sprite.yScale = this.props.spriteScale
 			this.body.render.sprite.angle = 0
 			this.body.render.sprite.horizontalFlip = this.props.spriteHorizontalFlip
 
 			this.updateSprite()
 		}
 
-		this.body.render.opacity = this.context.current ? 1 : 0.1
+		
+		this.body.render.opacity = this.context.current ? this.props.opacity : (0.1*this.props.opacity)
 
-		this.body.collisionFilter.mask = this.context.index
-		this.body.collisionFilter.category = this.context.index
+		if (this.props.nocollisions) {
+			this.body.collisionFilter.mask = 0
+			this.body.collisionFilter.category = 0
+		} else {
+			this.body.collisionFilter.mask = this.context.index
+			this.body.collisionFilter.category = this.context.index
+		}
 
 		return null
 	}
@@ -114,13 +120,17 @@ export class Body extends Component {
 Body.propTypes = {
 	x: React.PropTypes.number.isRequired,
 	y: React.PropTypes.number.isRequired,
+	opacity: React.PropTypes.number,
 	static: React.PropTypes.bool,
 	spriteFPS: React.PropTypes.number,
+	spriteScale: React.PropTypes.number,
 	spriteHorizontalFlip: React.PropTypes.bool
 }
 
 Body.defaultProps = {
+	opacity: 1,
 	spriteFPS: 30,
+	spriteScale: 1,
 	spriteHorizontalFlip: false
 }
 

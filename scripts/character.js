@@ -24,11 +24,15 @@ export class Character extends Component {
 	}
 
 	move() {
-		if((key.isPressed("left") || key.isPressed("a")) && this.circle.isOnTheGround()) {
+
+
+		// if((key.isPressed("left") || key.isPressed("a")) && this.circle.isOnTheGround()) {
+		if((key.isPressed("left") || key.isPressed("a"))) {
 			this.circle.applyForce(-0.01, 0)
 		}
 
-		if((key.isPressed("right") || key.isPressed("d")) && this.circle.isOnTheGround()) {
+		// if((key.isPressed("right") || key.isPressed("d")) && this.circle.isOnTheGround()) {
+		if((key.isPressed("right") || key.isPressed("d"))) {
 			this.circle.applyForce(0.01, 0)
 		}
 
